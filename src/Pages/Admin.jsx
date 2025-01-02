@@ -7,21 +7,13 @@ function Admin() {
   let [isBuzzerOn, setIsBuzzerOn] =useState(false);
   let [array, setArray] =useState([])
 
-  let arr = ["Team Red","Team Pink","Team Blue","Team Green"]
   async function handleClick(){
     if(isBuzzerOn){
       isBuzzerOn = false
     }else{
       isBuzzerOn = true
-      try{
-        const response = await databases.updateDocument('677305ac00095c78d53e','6775306d003aa3780949','677532220001edd4bcc0',{
-            'player': []
-        })
-      }catch{
-          alert("sorry our system fails")
-          return
-      }
     }
+
     setIsBuzzerOn(isBuzzerOn)
 
     try{
@@ -35,16 +27,16 @@ function Admin() {
   }
 
   useEffect(()=>{
-    const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"6775306d003aa3780949"}.documents`
+    const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"67765ef90011a1dabf3f"}.documents`
     const unsubscribe = client.subscribe(channnel, (response) => {
         try{
-            let response = DBService.getData('677305ac00095c78d53e','6775306d003aa3780949','677532220001edd4bcc0')
-                .then(ob => setArray(ob[0].player))
+            let response = DBService.getData('677305ac00095c78d53e','67765ef90011a1dabf3f')
+                .then(ob => setArray(ob))
                 .catch(e => console.log(e));
         }catch(e){
             console.log(e);
         }
-        fetchdata();
+        // fetchdata();
     });
     return () => unsubscribe();
 },[])
@@ -65,7 +57,7 @@ function Admin() {
         <div className='flex flex-wrap justify-around items-center h-[92vh]'>
           <div className='h-[92vh] w-72 bg-zinc-400 rounded-xl text-black'>
               {array.map((e, ind) => (
-                <div>{ind + 1} : {e}</div>
+                <div key={ind}>{ind + 1} : {e.name}</div>
               ) )}
           </div>
           <div className='h-[41vh] w-72 rounded-xl flex justify-center items-center'>

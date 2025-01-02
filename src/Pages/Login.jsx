@@ -12,26 +12,18 @@ function Login() {
       'QuizId' : ''
     })
 
-    let[array, setArray] = useState([])
-
-    useEffect(()=>{
-      try{
-        DBService.getData('677305ac00095c78d53e','677305df0009ed5a2613')
-          .then((obj) => setArray(obj))
-          .catch((e) => console.log(e))
-      }catch(e){
-        console.log(e);
-      }
-    },[])
-
     async function handleSubmit(e){
       e.preventDefault();
-      array.map((obj)=>{
-        if(obj.TeamName == data.TeamName && data.QuizId == data.QuizId ){
-          window.localStorage.setItem("TeamName",data.TeamName)
-          navigate('/home')
-        }
-      })
+
+      await DBService.sendData(
+        '677305ac00095c78d53e',
+        '677305df0009ed5a2613',
+        'unique()',
+        data
+      )
+      window.localStorage.setItem('TeamName',data.TeamName)
+
+      navigate('/Home')
     }  
 
   return (
