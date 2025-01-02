@@ -18,7 +18,6 @@ function Login() {
       await DBService.sendData(
         '677305ac00095c78d53e',
         '677305df0009ed5a2613',
-        'unique()',
         data
       )
       window.localStorage.setItem('TeamName',data.TeamName)
