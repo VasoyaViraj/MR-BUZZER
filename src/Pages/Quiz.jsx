@@ -22,16 +22,18 @@ function Quiz() {
     },[])
 
     async function handleClick(){
+        let timeee = Date.now();
         setIsBuzzerOn(false)
 
         if(TeamName != ""){            
             try{
                 const response = await databases.createDocument(
                     '677305ac00095c78d53e',
-                    '67765ef90011a1dabf3f',
+                    '677d76c0000545a2fb79',
                     'unique()',
                     {
                     'name': TeamName,
+                    'time' : timeee
                     }
                 )
             }catch(e){

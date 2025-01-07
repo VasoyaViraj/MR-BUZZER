@@ -7,6 +7,8 @@ function Admin() {
   let [isBuzzerOn, setIsBuzzerOn] =useState(false);
   let [array, setArray] =useState([])
 
+  // array.sort((a,b) => a.time - b.time)
+
   async function handleClick(){
     if(isBuzzerOn){
       isBuzzerOn = false
@@ -27,11 +29,11 @@ function Admin() {
   }
 
   useEffect(()=>{
-    const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"67765ef90011a1dabf3f"}.documents`
+    const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"677d76c0000545a2fb79"}.documents`
     const unsubscribe = client.subscribe(channnel, (response) => {
         try{
-            let response = DBService.getData('677305ac00095c78d53e','67765ef90011a1dabf3f')
-                .then(ob => setArray(ob))
+            let response = DBService.getData('677305ac00095c78d53e','677d76c0000545a2fb79')
+                .then(ob => setArray(ob.sort((a,b) => a.time - b.time)))
                 .catch(e => console.log(e));
         }catch(e){
             console.log(e);
