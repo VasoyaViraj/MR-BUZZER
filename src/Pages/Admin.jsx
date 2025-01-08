@@ -6,8 +6,7 @@ function Admin() {
 
   let [isBuzzerOn, setIsBuzzerOn] =useState(false);
   let [array, setArray] =useState([])
-
-  // array.sort((a,b) => a.time - b.time)
+  let [timestamps, setTimeStamps] = useState([])
 
   async function handleClick(){
     if(isBuzzerOn){
@@ -33,7 +32,10 @@ function Admin() {
     const unsubscribe = client.subscribe(channnel, (response) => {
         try{
             let response = DBService.getData('677305ac00095c78d53e','677d76c0000545a2fb79')
-                .then(ob => setArray(ob.sort((a,b) => a.time - b.time)))
+                .then(ob => {
+                  setArray(ob)
+                  setTimeStamps(ob.map(entry => entry.time))
+                })
                 .catch(e => console.log(e));
         }catch(e){
             console.log(e);
@@ -59,7 +61,9 @@ function Admin() {
         <div className='flex flex-wrap justify-around items-center h-[92vh]'>
           <div className='h-[92vh] w-72 bg-zinc-400 rounded-xl text-black'>
               {array.map((e, ind) => (
-                <div key={ind}>{ind + 1} : {e.name}</div>
+                <div key={ind}>
+                  {timestamps.indexOf(e.time) + 1} : {e.name}
+                </div>
               ) )}
           </div>
           <div className='h-[41vh] w-72 rounded-xl flex justify-center items-center'>
