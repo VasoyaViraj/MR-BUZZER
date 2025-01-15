@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+    
+        body {
+            background-image: url('bgForLandingPage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            padding-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(255, 0, 80, 0.6);
+            width: 100%;
+            max-width: 300px;
+        }
+    
+        .container h1 {
+            font-size: 2rem;
+            font-family: "Archivo Black", serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #ff2050;
+        }
+    
+        .input-field {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            font-size: 1rem;
+        }
+    
+        .input-field::placeholder {
+            color: #888;
+        }
+    
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #ff2050;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 700;
+        }
+    
+        .submit-btn:hover {
+            background-color: #ff4b6f;
+        }
+    
+        .symbols {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    
+        .symbols div {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            background-color: #222;
+            border: 2px solid #ff2050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff2050;
+        }
+    
+        .symbols div svg {
+            fill: #ff2050;
+            width: 30px;
+            height: 30px;
+        }
+    
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 1.8rem;
+            }
+    
+            .submit-btn {
+                font-size: 1rem;
+            }
+    
+            .symbols div {
+                width: 40px;
+                height: 40px;
+            }
+    
+            .symbols div svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .container{
+                max-width: 230px;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fan Fic Quiz</h1>
+        <input type="email" class="input-field" placeholder="Team Name">
+        <input type="password" class="input-field" placeholder="Password">
+        <button class="submit-btn">Go for Buzzer round</button>
+        <div class="symbols">
+            <div>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+            </div>
+            <div>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="25" y="25" width="50" height="50" />
+                </svg>
+            </div>
+            <div>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,15 90,85 10,85" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

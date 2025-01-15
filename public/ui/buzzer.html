@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzzer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Archivo Black', sans-serif;
+        }
+        
+        .main {
+            background-image: url('bgForBuzzer.jpg');
+            background-repeat: repeat;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .topContainer{
+            height: 8vh;
+            padding: 8px 8px 0px 8px ;
+        }
+
+        .nav{
+            height: 100%;
+            background-color: #f9cbe1e7;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .nav .leftText{
+            text-shadow: 2px 1.5px#c5538ae7;
+            font-size: 20px;
+        }
+
+        .bottomContainer{
+            height: 92vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imgContainer{
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .brush{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center ;
+        }
+
+        .svgDiv{
+            /* height: 50%;
+            width: 50%; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 22px;
+        }
+
+        .svgDiv div{
+            background-color: rgb(82, 255, 114);
+            box-shadow: 5px 6px rgb(116, 105, 114);
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-shadow: 1px 1px#c5538ae7;
+            font-size: 22px;
+        }
+
+        @media (max-width: 500px) {
+            .imgContainer{
+                width: 620px;
+                height: 620px;
+            }
+
+            .svgDiv div{
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="topContainer">
+            <div class="nav">
+                <div class="leftText">Fan Fic Quiz</div>
+                <div class="rightText">Team Name</div>
+            </div>
+        </div>
+        <div class="bottomContainer">
+            <div class="imgContainer">
+                <img src="brushStroke.png" class="brush" >
+                <div class="svgDiv">
+                    <div>
+                        Click
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { databases, client } from '../services/appwrite';
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import DBService from '../services/appwriteClass';
+import "@fontsource/archivo-black "
 
 function Login() {
 
@@ -29,7 +29,7 @@ function Login() {
     <>
       <div className='h-screen flex justify-center items-center' >
         <div className='p-10 bg-red-400' >
-            <div className='m-5' ><h1>Enter Details</h1></div>
+            <div className='m-5' ><h1 className='font-archivo'>Enter Details</h1></div>
             <div className="m-5">
                 <input label="teamName" className='rounded-lg' value={data.TeamName} onChange={(e) => setData({...data , TeamName: e.target.value})}/>
             </div>
