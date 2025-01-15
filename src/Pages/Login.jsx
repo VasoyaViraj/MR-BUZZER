@@ -54,15 +54,28 @@ function Login() {
             Fan Fic Quiz
           </h1>
 
-          <input type='text' placeholder='Team Name' label="teamName" value={data.TeamName} onChange={(e) => setData({...data , TeamName: e.target.value})}
+          <input 
+            type='text' 
+            placeholder='Team Name' 
+            label="teamName" 
+            value={data.TeamName} 
+            onChange={(e) => setData({...data , TeamName: e.target.value})}
             className='w-[100%] p-[10px] mt-[10px] border-none rounded-[5px] bg-[#222] text-[#fff] text-[1rem] placeholder:text-[#888] ' 
           />
         
-          <input type='text' placeholder='Password' label="quizId" value={data.QuizId}  onChange={(e) => setData({...data , QuizId: e.target.value})}
+          <input 
+            type='text' 
+            placeholder='Password' 
+            label="quizId" 
+            value={data.QuizId}  
+            onChange={(e) => setData({...data , QuizId: e.target.value})}
             className='w-[100%] p-[10px] mt-[10px] border-none rounded-[5px] bg-[#222] text-[#fff] text-[1rem] placeholder:text-[#888] '
           />
 
-          <button className='submit-btn w-full p-[10px] mt-5 bg-[#ff2050] border-none text-[#fff] text-[1.2rem] rounded-[5px] cursor-pointer transition: bg 300ms ease-in-out; font-bold hover:bg-[#ff4b6f]'>
+          <button 
+            onClick={handleSubmit}  
+            className='submit-btn w-full p-[10px] mt-5 bg-[#ff2050] border-none text-[#fff] text-[1.2rem] rounded-[5px] cursor-pointer transition: bg 300ms ease-in-out; font-bold hover:bg-[#ff4b6f]'
+          >
             Go for Buzzer round
           </button>
 
