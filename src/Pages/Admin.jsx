@@ -47,7 +47,7 @@ function Admin() {
 
   return (
     <>
-      <div className='h-screen'>
+      <div className='h-screen bg-slate-700 ' >
         <div className='h-[8vh] flex justify-center items-center' >
           <div className='flex justify-between items-center bg-slate-400 rounded-xl w-[90%] py-1 px-2' >
             <div className='as'>

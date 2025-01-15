@@ -1,0 +1,11 @@
+@media (max-width: 500px) {
+    .imgContainer{
+        width: 620px;
+        height: 620px;
+    }
+
+    .svgDiv div{
+        width: 220px;
+        height: 220px;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DBService from '../services/appwriteClass';
 import { databases, client } from '../services/appwrite';
+import "@fontsource/archivo-black"
 
 function Quiz() {
 
@@ -47,7 +48,7 @@ function Quiz() {
     
     return (
         <>
-            <div className='h-screens' >
+            {/* <div className='h-screens' >
                 <div className='h-[8vh] bg-slate-300 flex justify-between items-center' >
                     <div className='ml-3'>
                         {TeamName}
@@ -64,7 +65,48 @@ function Quiz() {
                         { isBuzzerOn ? "Click Buzzer" : "Buzzer is off" }
                     </button>
                 </div>
+            </div> */}
+
+            {/* Main */}
+            <div className='bg-[url(/bgForBuzzer.jpg)] bg-repeat h-screen font-archivo'>
+
+                {/* Nav */}
+                <div className='h-[8vh] p-[8px_8px_0px_8px]'>
+
+                    <div className='h-full bg-[#f9cbe1e7] rounded-[10px] flex justify-between items-center p-[10px]'>
+                        <div style={{textShadow : '2px 1.5px #c5538ae7', fontSize : '20px'}} >Fan Fic Quiz</div>
+                        <div className='text-xl mr-6'>{TeamName}</div>
+                    </div>
+
+                </div>
+
+                {/* Lower Div */}
+                <div className='h-[92vh] flex justify-center items-center' >
+
+                    <div className="imgContainer w-[500px] h-[500px] relative">
+
+                        <img src="/brushStroke.png" className='h-full w-full object-cover object-center' />
+
+                        <div className="svgDiv flex justify-center items-center p-[22px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            {/* bg-[rgb(88,255,114)] */}
+                            <button 
+                                    onClick={handleClick}
+                                disabled={!isBuzzerOn} 
+                                style={{textShadow : '1px 1px #c5538ae7'}}
+                                className={`shadow-[5px_6px_rgb(116,105,114)] w-[180px] h-[180px] flex justify-center items-center rounded-[50%] text-[22px] ${!isBuzzerOn ? 'bg-red-400' : 'bg-[rgb(88,255,114)]'}`}
+                            >
+                                { isBuzzerOn ? "Click Buzzer" : "Buzzer is off" }
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
             </div>
+
         </>
     )
 }

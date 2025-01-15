@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from "./Pages/Login.jsx";
 import Quiz from "./Pages/Quiz.jsx";
@@ -6,8 +6,6 @@ import Home from "./Pages/Home.jsx";
 import Admin from "./Pages/Admin.jsx"
 
 export default function App() {
-
-  let logg = window.localStorage.getItem('isLogged')
 
   // let [data, setData] = useState({
   //   'TeamName' : '',

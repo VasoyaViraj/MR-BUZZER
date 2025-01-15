@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 1.8rem;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+    }
+
+    .symbols div {
+        width: 40px;
+        height: 40px;
+    }
+
+    .symbols div svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .container{
+        max-width: 300px;
+        padding: 30px;
+    }
+}
