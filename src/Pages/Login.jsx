@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import DBService from '../services/appwriteClass';
 import "@fontsource/archivo-black"
 import './login.css'
+import {databasesMR, Query} from '../services/appwriteMR.js'
 
 function Login() {
 
@@ -10,38 +10,77 @@ function Login() {
 
     let [data, setData] = useState({
       'TeamName' : '',
-      'QuizId' : ''
+      'Password' : ''
     })
 
-    async function handleSubmit(e){
+    //verify teamname from registered teams and password is 10 digits contact number of teamLeader
+
+    // async function handleSubmit(e){
+    //   e.preventDefault();
+
+    //   let response = await databasesMR.listDocuments(
+    //     import.meta.env.VITE_DATABASE_ID,
+    //     import.meta.env.VITE_COLLECTION_ID,
+    //     [
+    //       Query.equal('teamName',data.TeamName)
+    //     ]
+    //   ).then(ob => setObjt(ob.documents[0]))
+    //     .catch(e => console.log(e))
+
+    //   if(objt){
+    //     console.log("YEH");
+    //     if(objt.teamMembers[0].contactNumber == data.Password ){
+    //       window.localStorage.setItem('TeamName',data.TeamName)
+    //       navigate('/Quiz')
+    //     }else{
+    //       console.log(objt?.teamMembers[0]?.contactNumber , data.Password);
+    //       alert("Enter correct password");
+    //     }
+    //   }else{
+        
+    //     alert("Team not found");
+    //   }
+    // }  
+
+    async function handleSubmit(e) {
       e.preventDefault();
+    
+      try {
 
-      await DBService.sendData(
-        '677305ac00095c78d53e',
-        '677305df0009ed5a2613',
-        data
-      )
-      window.localStorage.setItem('TeamName',data.TeamName)
+        const response = await databasesMR.listDocuments(
+          import.meta.env.VITE_DATABASE_ID,
+          import.meta.env.VITE_COLLECTION_ID,
+          [Query.equal('teamName', data.TeamName)]
+        );
+        const team = response.documents[0];
+        
+        if(team){
 
-      //verify teamname from registered teams and password is 10 digits contact number of teamLeader
+          const TeamMembers = JSON.parse(team.teamMembers);
+          const contactNumber = TeamMembers[0]?.contactNumber;
+          console.log(contactNumber);
 
-      navigate('/Quiz')
-    }  
+          if(contactNumber == data.Password){
+            window.localStorage.setItem('TeamName', data.TeamName);
+            navigate('/Quiz');
+          }else{
+            alert("Enter the correct password");
+          }
+
+        }else{
+
+          alert("Team name not matched please enter correct team name");
+
+        }
+
+      } catch (error) {
+        console.error("Error while fetching team data:", error);
+        alert("An error occurred. Please try again later.");
+      }
+    }
 
   return (
     <>
-      {/* <div className='h-screen flex justify-center items-center' >
-        <div className='p-10 bg-red-400' >
-            <div className='m-5' ><h1 className='font-archivo'>Enter Details</h1></div>
-            <div className="m-5">
-                <input label="teamName" className='rounded-lg' value={data.TeamName} onChange={(e) => setData({...data , TeamName: e.target.value})}/>
-            </div>
-            <div className="m-5">
-                <input label="quizId" className='rounded-lg' value={data.QuizId}  onChange={(e) => setData({...data , QuizId: e.target.value})}/>
-            </div>
-            <button className="m-5 bg-slate-300 rounded-2xl p-2" onClick={handleSubmit} >Submit</button>
-        </div>
-      </div> */}
 
       <div className='main h-screen bg-[url(/bgForLandingPage.jpg)] bg-no-repeat bg-cover bg-center text-[#fff] flex justify-center items-center'>
 
@@ -67,8 +106,8 @@ function Login() {
             type='text' 
             placeholder='Password' 
             label="quizId" 
-            value={data.QuizId}  
-            onChange={(e) => setData({...data , QuizId: e.target.value})}
+            value={data.Password}  
+            onChange={(e) => setData({...data , Password: e.target.value})}
             className='w-[100%] p-[10px] mt-[10px] border-none rounded-[5px] bg-[#222] text-[#fff] text-[1rem] placeholder:text-[#888] '
           />
 
