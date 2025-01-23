@@ -25,6 +25,7 @@ function Quiz() {
     async function handleClick(){
         let timeee = Date.now();
         setIsBuzzerOn(false)
+        navigator.vibrate(500)
 
         if(TeamName != ""){            
             try{
