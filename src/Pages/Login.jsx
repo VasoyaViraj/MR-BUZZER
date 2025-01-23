@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "@fontsource/archivo-black"
 import './login.css'
-import {databasesMR, Query} from '../services/appwriteMR.js'
+// import {databasesMR, Query} from '../services/appwriteMR.js'
+import { client, databases, Query } from '../services/appwrite';
 
 function Login() {
 
@@ -47,17 +48,16 @@ function Login() {
     
       try {
 
-        const response = await databasesMR.listDocuments(
-          import.meta.env.VITE_DATABASE_ID,
-          import.meta.env.VITE_COLLECTION_ID,
+        const response = await databases.listDocuments(
+          '677305ac00095c78d53e',
+          '677305df0009ed5a2613',
           [Query.equal('teamName', data.TeamName)]
         );
         const team = response.documents[0];
         
         if(team){
 
-          const TeamMembers = JSON.parse(team.teamMembers);
-          const contactNumber = TeamMembers[0]?.contactNumber;
+          const contactNumber = team?.contactNumber;
           console.log(contactNumber);
 
           if(contactNumber == data.Password){
