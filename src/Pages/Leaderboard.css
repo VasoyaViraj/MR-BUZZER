@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    background-color: #f1f2f296;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+:root {
+    --team-height: 60px;
+    --team-spacing: 10px;
+}
+
+.team {
+    position: absolute;
+    width: 90%;
+    height: var(--team-height);
+    background: var(--color);
+    box-shadow: 0 3px 5px #0000001f;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--i) * (var(--team-height) + var(--team-spacing)));
+    display: flex;
+
+    align-items: center;
+    transition-property: top;
+    transition-duration: 500ms;
+    border-radius: 10px;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.name {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.score {
+    width: var(--team-height);
+    margin: 20px 0;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+
+.team i {
+    width: 80px;
+    height: var(--team-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.8rem;
+}

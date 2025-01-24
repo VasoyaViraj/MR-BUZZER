@@ -5,6 +5,7 @@ import Quiz from "./Pages/Quiz.jsx";
 import Home from "./Pages/Home.jsx";
 import Admin from "./Pages/Admin.jsx"
 import Leaderboard from "./Pages/Leaderboard.jsx";
+import Lead from "./Pages/lead.jsx";
 
 export default function App() {
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/Quiz" element={ <Quiz/> } />
           <Route path="/aAdmin" element={ <Admin/> } />
           <Route path="/leaderboard" element={ <Leaderboard/> } />
+          <Route path="/lead" element={ <Lead/> } />
         </Routes>
       </BrowserRouter>
     </>
