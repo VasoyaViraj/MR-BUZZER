@@ -64,7 +64,7 @@ useEffect(() => {
       try {
         const res = await databases.listDocuments(
           "677305ac00095c78d53e",
-          "679383d0001599a56fa7"
+          "679382f4002734c631d2"
         );
         setTeams(
           res.documents.map((doc, index) => ({
