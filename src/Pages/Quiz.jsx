@@ -15,10 +15,10 @@ function Quiz() {
     }
 
     useEffect(()=>{
-        const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"6775306d003aa3780949"}.documents`
+        const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"679383890010605aa324"}.documents`
         const unsubscribe = client.subscribe(channnel, (response) => {
             try{
-                DBService.getData('677305ac00095c78d53e','6775306d003aa3780949','677532220001edd4bcc0')
+                DBService.getData('677305ac00095c78d53e','679383890010605aa324','6793856a00281e9cba9f')
                     .then(ob => setIsBuzzerOn(ob[0].buzzerState))
                     .catch(e => console.log(e));
             }catch(e){
@@ -39,7 +39,7 @@ function Quiz() {
             try{
                 const response = await databases.createDocument(
                     '677305ac00095c78d53e',
-                    '677d76c0000545a2fb79',
+                    '679383d0001599a56fa7',
                     'unique()',
                     {
                     'name': TeamName,

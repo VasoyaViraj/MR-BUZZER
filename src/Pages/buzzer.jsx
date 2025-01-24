@@ -59,10 +59,10 @@ function Admin2() {
   let [timestamps, setTimeStamps] = useState([])
 
   useEffect(()=>{
-    const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"677d76c0000545a2fb79"}.documents`
+    const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"679383d0001599a56fa7"}.documents`
     const unsubscribe = client.subscribe(channnel, (response) => {
         try{
-            let response = DBService.getData('677305ac00095c78d53e','677d76c0000545a2fb79')
+            let response = DBService.getData('677305ac00095c78d53e','679383d0001599a56fa7')
                 .then(ob => {
                   setArray(ob)
                   setTimeStamps(ob.map(entry => entry.time))
