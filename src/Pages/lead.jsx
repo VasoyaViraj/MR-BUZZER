@@ -83,7 +83,7 @@ useEffect(() => {
   teams.reverse()
 
   return (
-    <div className=' min-h-screen flex justify-center items-center p-32 bg-gray-800' >
+    <div className=' min-h-screen flex justify-center items-center bg-gray-800' >
         <LeaderboardContainer >
         <Header className='font-bold' >Leaderboard</Header>
         <List>
