@@ -51,7 +51,7 @@ function Login() {
         const response = await databases.listDocuments(
           '677305ac00095c78d53e',
           '677305df0009ed5a2613',
-          [Query.equal('teamName', data.TeamName)]
+          [Query.equal('name', data.TeamName)]
         );
         const team = response.documents[0];
         
