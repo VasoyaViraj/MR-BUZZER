@@ -8,7 +8,8 @@ const LeaderboardContainer = styled.div`
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(145deg, #f3f3f3, #e2e2e2);
+  // background: linear-gradient(145deg, #f3f3f3, #e2e2e2);
+  background-color : rgba(232, 225, 204, 0.3)
 `;
 
 const Header = styled.h1`
@@ -16,6 +17,7 @@ const Header = styled.h1`
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 1rem;
+  color: white;
 `;
 
 const List = styled.ul`
@@ -81,8 +83,8 @@ useEffect(() => {
   teams.reverse()
 
   return (
-    <div className=' min-h-screen flex justify-center items-center p-32' >
-        <LeaderboardContainer>
+    <div className=' min-h-screen flex justify-center items-center p-32 bg-gray-800' >
+        <LeaderboardContainer >
         <Header className='font-bold' >Leaderboard</Header>
         <List>
             {teams.map((player, index) => (

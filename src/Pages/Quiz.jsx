@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react'
 import DBService from '../services/appwriteClass';
 import { databases, client } from '../services/appwrite';
 import "@fontsource/archivo-black"
+import clickSound from '../../public/buzzer_sound.wav'
 
 function Quiz() {
 
     let TeamName = window.localStorage.getItem("TeamName");
     let [isBuzzerOn, setIsBuzzerOn] = useState(false)
+    const audio = new Audio(clickSound);
+
+    function playAudio(){
+        audio.play();
+    }
 
     useEffect(()=>{
         const channnel = `databases.${"677305ac00095c78d53e"}.collections.${"6775306d003aa3780949"}.documents`
@@ -23,9 +29,11 @@ function Quiz() {
     },[])
 
     async function handleClick(){
+
         let timeee = Date.now();
         setIsBuzzerOn(false)
         navigator.vibrate(500)
+        playAudio();
 
         if(TeamName != ""){            
             try{
